@@ -3,7 +3,6 @@
 [![Captura-de-pantalla-de-2023-02-13-16-41-17.png](https://i.postimg.cc/nhgDwRZk/Captura-de-pantalla-de-2023-02-13-16-41-17.png)](https://postimg.cc/dhR3h9hk)
 
 
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
