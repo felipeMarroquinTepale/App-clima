@@ -1,7 +1,6 @@
 #Vista general de la aplicacion
 
-[![Captura-de-pantalla-de-2023-02-13-16-41-17.png](https://i.postimg.cc/nhgDwRZk/Captura-de-pantalla-de-2023-02-13-16-41-17.png)](https://postimg.cc/dhR3h9hk)
-
+[![app-Climaa.png](https://i.postimg.cc/k557K9LY/app-Climaa.png)](https://postimg.cc/K1dXyXGt)
 
 # Getting Started with Create React App
 
