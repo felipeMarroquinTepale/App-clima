@@ -1,6 +1,6 @@
 #Vista general de la aplicacion
 
-[![Captura-de-pantalla-de-2023-02-13-23-35-23.png](https://i.postimg.cc/Fs0b9rBS/Captura-de-pantalla-de-2023-02-13-23-35-23.png)](https://postimg.cc/3dJ01T7r)
+[![Captura-de-pantalla-de-2023-02-13-23-35-23.png](https://i.postimg.cc/fy8R4rXm/Captura-de-pantalla-de-2023-02-13-23-35-23.png)](https://postimg.cc/bS2hkLmw)
 
 # Getting Started with Create React App
 
