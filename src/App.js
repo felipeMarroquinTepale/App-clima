@@ -1,26 +1,49 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 import axios from "axios";
 
 function App() {
-    const [data, setData] = useState({})
+    const [dataF, setDataF] = useState({})
+    const [dataC, setDataC] = useState({})
     const [location,setLocation] = useState('')
 
+    //Arrray de las imagenes que contendra el backgroud del body de la paginas
+    // const images = [];
+    // images[0]='./assets/imagen1.jpg';
+    // images[1]='./assets/imagen2.jpg';
+    // images[2]='./assets/imagen3.jpeg';
+    // images[3]='./assets/imagen4.jpeg';
+    // images[4]='./assets/imagen5.jpeg';
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=8c3756c2929656a682b9ddc85cb11930`
+
+
+    //Para temperatura en Fahrenheit use unidades = imperial
+    const urlF = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=8c3756c2929656a682b9ddc85cb11930&units=imperial`
+
+    //Para la temperatura en Celsius use unidades = métrico
+    const urlC = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=8c3756c2929656a682b9ddc85cb11930&units=metric`
 
     const searchLocation = (event) => {
 
         if (event.key === 'Enter'){
-            axios.get(url).then((response)=>{
-                setData(response.data)
+            axios.get(urlF).then((response)=>{
+                setDataF(response.data)
                 console.log(response.data)
-
-
+            })
+            axios.get(urlC).then((response)=>{
+                setDataC(response.data)
+                console.log(response.data)
             })
             setLocation('')
         }
     }
 
+
+//    useEffect(() => {
+//         // //Se toma dinamicamente las images del arreglo que definimos, esto para ocupar dinamicamente la imagen de fondo
+//         let setBackground = Math.floor(Math.random()*images.length);
+//         document.body.style.backgroundImage = `url(${images[setBackground]})`;
+
+//     });
 
     return(
         <div className="app">
@@ -35,33 +58,36 @@ function App() {
             <di className="container">
                 <div className="top">
                     <div className="location">
-                        <p>{data.name}</p>
+                        <p>{dataF.name}</p>
                     </div>
                     <div className="temp">
                         {/* la funcion .toFixed es para darnos los datos enteros */}
-                        {data.main ? <h1>{data.main.temp.toFixed()}°F</h1>:null}
+                        {dataF.main ? <h1>{dataF.main.temp.toFixed()}°F</h1>:null}
+                        {dataC.main ? <h1>{dataC.main.temp.toFixed()}°C</h1>:null}
 
                     </div>
                     <div className="description">
-                        {data.weather ? <p>{data.weather[0].main}</p>:null}
+                        {dataF.weather ? <p>{dataF.weather[0].main}</p>:null}
 
                     </div>
                 </div>
 
                 {/* Si todavia no hay datos por mostrar, no me muestres lo siguiente*/}
 
-                {data.name !== undefined &&
+                {dataF.name !== undefined &&
                 <div className="bottom">
                     <div className="feels">
-                        {data.main ? <p className="bold">{data.main.feels_like}°F</p>: null}
+                        {dataF.main ? <p className="bold">{dataF.main.feels_like}°F</p>: null}
+                        {dataC.main ? <p className="bold">{dataC.main.feels_like}°C</p>: null}
                         <p>Sensacion termica</p>
                      </div>
                     <div className="humidity">
-                        {data.main ? <p className="bold">{data.main.humidity}%</p>: null}
+                        {dataF.main ? <p className="bold">{dataF.main.humidity}%</p>: null}
                         <p>Humedad</p>
                     </div>
                     <div className="wind">
-                        {data.wind ? <p className="bold">{data.wind.speed}MPH</p>: null}
+                        {dataF.wind ? <p className="bold">{dataF.wind.speed}MPH</p>: null}
+                        {dataC.wind ? <p className="bold">{dataC.wind.speed}KM/h</p>: null}
                         <p>Velocidad del viento</p>
                     </div>
                 </div>
